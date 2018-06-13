@@ -1,0 +1,26 @@
+Dynamic GeoVisualization of Human-in-the-Loop Spatially Weighted Interpolation (needs to change)
+
+IDEA
+•	Can we create a geospatial tool that allows users to create interpolation models using countries (or cities, census tracts/blocks) that they select based on dynamically calculated measures of similarity and credibility?
+•	What makes two countries or cities similar? Can I use data from one area as a “best guess” in another area where I have no information?
+•	How do we encode metatdata into the spatial analysis? Or do we even want to…. And if we do, how do we assign spatial weights? Based on “credibility”? “Similarity”?
+o	Source: Metadata and provenance for spatial analysis: the case of spatial weights. Luc Anselin, Sergio J. Rey & Wenwen Li. https://www.tandfonline.com/doi/pdf/10.1080/13658816.2014.917313?needAccess=true
+o	Aka, user-defined spatially weighted interpolation
+
+DATA
+•	IPUMS-International microdata, building information
+o	Extension to any dataset?
+
+USE CASES
+•	Building information for general emergency management
+o	User: UN aid management worker, Haiti 2010 earthquake
+•	Has familiarity with GIS tools and data on population and buildings in parts of Haiti, less experience with advanced geostatistical techniques
+o	Scenario: UN aid management worker has to assess how many fatalities have occurred. How many buildings by type (exterior wall material, height, lateral-load resisting system) were in this area (identified by collection of counties for example) during the earthquake? If we assume complete destruction of all buildings and infrastructure, we need to know this information to calculate the need by food, water, and shelter for aid distribution. However, we only have building and population information for two of the surrounding cities out of five. One city is very rural and very much like the destructed area but the other city is more urban and contains more information. The data is fairly trustworthy, but volunteered geographic information (VGI) from outside sources is offered to help fill in some of the gaps in population and building information. How do we proceed with interpolation?
+•	Cybersecurity and search
+o	User: government agent, National Geospatial Intelligence Agency (NGA)
+•	Advanced GIS and spatial analysis skills, but uncertain data sources
+o	Scenario: the NGA agent has just been given information that a person of interest is in a vernacular building structure in a part of Pakistan. There is little to no reliable (and up-to-date) information about most buildings in Pakistan. NGA currently references PAGER for building information, which uses “local domain experts” to infer the building distribution. How do we improve upon PAGER estimates by using available data from India and Afghanistan, but with the capacity to favor certain areas (inverse weighted distance) for interpolation over others? For example, we could use India data to do spatial interpolation but the population densities are extremely different.
+•	Tornado and population mobility prediction
+o	User: FEMA management personnel, with a tornado warning
+•	General GIS skills, little building knowledge, advanced tornado knowledge
+o	Scenario: It’s tornado season, and there is a tornado expected to arise in the South (Kansas, Oklahoma, etc.) within a few hours. In the United States, we have rich building information but very little or very inaccurate information on whether buildings have basements. The FEMA personnel has to give an estimate for the percent of people who will be in basements during the tornado, and the percent of people who may seek other shelter (and where). If we can accurately predict the number of buildings with basements, we can predict how many people may stay and move during the tornado.
